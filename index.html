@@ -8,6 +8,7 @@
 </head>
 <body>
   <div class="app">
+    <div class="header">Customer Management App</div>
     <div class="customer-list">
       <h2>Customer List</h2>
       <table id="customerTable">
@@ -20,7 +21,7 @@
           </tr>
         </thead>
         <tbody id="customerTableBody">
-          <!-- Dynamic content -->
+
         </tbody>
       </table>
       <button id="addCustomerBtn">Add Customer</button>
@@ -31,15 +32,19 @@
         <label>
           Name:
           <input type="text" id="customerName">
+          <span class="validation-error" id="nameError">Name is required.</span>
         </label>
         <label>
           No of Purchases:
           <input type="number" id="customerPurchases">
+          <span class="validation-error" id="purchasesError">Invalid number of purchases.</span>
         </label>
         <label>
           Amount:
           <input type="number" id="customerAmount">
+          <span class="validation-error" id="amountError">Invalid amount.</span>
         </label>
+        
         <button type="button" id="saveCustomerBtn">Save</button>
       </form>
     </div>
