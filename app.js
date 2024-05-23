@@ -1,7 +1,8 @@
-//Mock Data
+// Mock data
 let customers = [
     { id: 1, name: 'Ajay', purchases: 3, amount: 150 },
     { id: 2, name: 'Tushar', purchases: 5, amount: 250 }
+
   ];
   
   let selectedCustomer = null;
@@ -52,24 +53,39 @@ let customers = [
   // Save customer
   saveCustomerBtn.addEventListener('click', () => {
     const name = customerName.value;
-    const purchases = customerPurchases.value;
-    const amount = customerAmount.value;
+    const purchases = parseInt(customerPurchases.value, 10);
+    const amount = parseFloat(customerAmount.value);
+    
+  if (!name) {
+    alert('Please enter a name for the customer.');
+    return;
+  }
   
-    if (selectedCustomer) {
+  if (isNaN(purchases) || purchases <= 0) {
+    alert('Please enter a valid number of purchases.');
+    return;
+  }
+
+  if (isNaN(amount) || amount <= 0) {
+    alert('Please enter a valid amount.');
+    return;
+  }
+  
+  if (selectedCustomer) {
       // Update customer
       selectedCustomer.name = name;
       selectedCustomer.purchases = purchases;
       selectedCustomer.amount = amount;
-    } else {
+  } else {
       // Add new customer
       const newCustomer = {
         id: customers.length ? customers[customers.length - 1].id + 1 : 1,
         name,
         purchases: Number(purchases),
         amount: Number(amount)
-      };
+    };
       customers.push(newCustomer);
-    }
+  }
   
     selectedCustomer = null;
     customerDetails.style.display = 'none';
@@ -89,3 +105,8 @@ let customers = [
   renderCustomerTable();
   customerDetails.style.display = 'none';
   
+
+
+
+
+
