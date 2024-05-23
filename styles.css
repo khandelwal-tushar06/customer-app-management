@@ -1,75 +1,162 @@
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #548399;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url(images.jpg);
   
-  .app {
-    display: flex;
-    width: 80%;
-    max-width: 1000px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    overflow: hidden;
-  }
-  
-  .customer-list, .customer-details {
-    flex: 1;
-    padding: 20px;
-    margin: 10px;
-    border-right: 1px solid #ccc;
-  }
-  
-  .customer-details {
-    border-right: none;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-  
-  th, td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  input[type="text"], input[type="number"] {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  form {
-    display: flex;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 1200px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.header {
+  background-color: #007BFF;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 1.5em;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+/* Customer List Styles */
+.customer-list {
+  flex: 1;
+  margin: 10px;
+}
+
+.customer-list h2 {
+  margin-top: 0;
+  color: #007BFF;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f8f8f8;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+#addCustomerBtn {
+  margin-top: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Customer Details Styles */
+.customer-details {
+  flex: 1;
+  margin: 10px;
+  border-left: 1px solid #ccc;
+  padding-left: 20px;
+  display: none;
+}
+
+.customer-details h2 {
+  margin-top: 0;
+  color: #007BFF;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"], input[type="number"], input[type="date"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input:invalid {
+  border-color: #ff4d4d;
+}
+
+.validation-error {
+  color: #ff4d4d;
+  font-size: 0.9em;
+  margin-top: -15px;
+  margin-bottom: 10px;
+  display: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .content {
     flex-direction: column;
   }
+
+  .customer-list, .customer-details {
+    margin: 0;
+    border: none;
+    padding: 10px;
+  }
+
+  .customer-details {
+    padding-top: 20px;
+  }
+
+  #addCustomerBtn {
+    margin: 10px 0;
+  }
+}
+
   
